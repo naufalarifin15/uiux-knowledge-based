@@ -22,16 +22,6 @@ This repository contains documentation and context used by **Claude Code** durin
             └── README.md
 ```
 
-## Cloning This Repo
-This repo is ready to use as-is — no sub-folder navigation needed.
-
-1. Clone it:
-   ```
-   git clone https://github.com/naufalarifin15/uiux-knowledge-base-en.git
-   ```
-2. Open the cloned folder directly in VSCode / Claude Code.
-3. That's it — Claude Code automatically reads `CLAUDE.md`, `docs/dos-donts/`, and activates the `siloam-prd-writer` skill.
-
 ## How to Use
 1. Place this folder in the root of your Vue 3 project (or symlink it if used across multiple projects).
 2. Open VSCode with Claude Code active in the same project root.
