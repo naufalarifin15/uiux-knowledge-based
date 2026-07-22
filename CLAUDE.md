@@ -24,6 +24,7 @@
   - `components/` — custom Vue components (outside the UI package)
   - `composables/` — reusable composition functions (`useXxx`)
   - `layouts/` — page layout wrappers (e.g. `DefaultLayout.vue`, `AuthLayout.vue`)
+  - `mocks/` — mock/dummy data for development (see Mock Data Convention below)
   - `pages/` — page/route-level components
   - `plugins/` — Vue plugin configuration (router, pinia, etc.)
   - `services/` — API calls / backend integration
@@ -35,6 +36,28 @@
 - Always import UI components from `@siloamhospitals/ui-vue`; don't re-export or re-wrap them without a clear reason
 - New components only go into `src/components/` if they're genuinely not available in `@siloamhospitals/ui-vue` (see rules above)
 
+## Mock Data Convention
+- All mock data MUST live in `mocks/`, NEVER hardcoded directly inside a component's `<script setup>`.
+- File naming: `[entity-name].mock.ts` (e.g. `patients.mock.ts`, `appointments.mock.ts`)
+- Location:
+  - Flat/small projects → `src/mocks/`
+  - Feature-based projects → `src/features/[feature-name]/mocks/`
+- Define the TypeScript interface in `src/types/` first, before generating mock data, so the structure stays consistent across components.
+- Use factory functions, not static arrays, so different states (empty, loading, error, populated) are easy to generate:
+```ts
+  export function createMockPatient(overrides?: Partial<PatientRecord>): PatientRecord {
+    return {
+      id: crypto.randomUUID(),
+      mrn: 'MRN-0001',
+      name: 'Budi Santoso',
+      // ...other default fields
+      ...overrides
+    }
+  }
+```
+- Mock data must be easy to swap for real API calls — only import mocks from the `services/`/`composables/` layer, never import them directly in a component.
+- Ensure the `mocks/` folder is excluded from the production build, or at minimum clearly commented as dummy data.
+- 
 ## Output Format
 - Vue 3 Composition API code (`<script setup>`)
 - Include brief comments only for non-trivial logic
