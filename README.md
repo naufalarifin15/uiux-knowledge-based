@@ -15,9 +15,22 @@ This repository contains documentation and context used by **Claude Code** durin
 │       ├── input.md
 │       ├── toast.md
 │       └── ...                     # one file per component in the package
+└── .claude/
+    └── skills/
+        └── siloam-prd-writer/       # Interactive PRD-writing skill (auto-triggers on "write a PRD for X")
+            ├── SKILL.md
+            └── README.md
 ```
 
-> The `.claude/commands/` and `.claude/skills/` folders can be added later if needed (for repeated workflows or conditional context) — they're not required from the start, and their structure doesn't affect the rest of this repo.
+## Cloning This Repo
+This repo is ready to use as-is — no sub-folder navigation needed.
+
+1. Clone it:
+   ```
+   git clone https://github.com/naufalarifin15/uiux-knowledge-base-en.git
+   ```
+2. Open the cloned folder directly in VSCode / Claude Code.
+3. That's it — Claude Code automatically reads `CLAUDE.md`, `docs/dos-donts/`, and activates the `siloam-prd-writer` skill.
 
 ## How to Use
 1. Place this folder in the root of your Vue 3 project (or symlink it if used across multiple projects).
@@ -25,6 +38,7 @@ This repository contains documentation and context used by **Claude Code** durin
 3. Claude Code automatically reads `CLAUDE.md` as the base instruction for every session.
 4. For component props/API, Claude Code refers directly to the types from `@siloamhospitals/ui-vue`.
 5. For usage patterns & variant selection (do's & don'ts), Claude Code refers to `docs/dos-donts/`.
+6. To generate a PRD, just ask: "write a PRD for [feature name]" — the `siloam-prd-writer` skill will guide you through it interactively.
 
 ## Coverage of `docs/dos-donts/`
 **Every component in `@siloamhospitals/ui-vue` should ideally have a documentation file**, because the package's types only explain *what* props/variants are available, not *when* and *why* to use them. This matters especially for variants that carry functional meaning, for example:
