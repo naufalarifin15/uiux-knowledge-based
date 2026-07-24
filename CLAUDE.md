@@ -57,7 +57,7 @@
 ```
 - Mock data must be easy to swap for real API calls — only import mocks from the `services/`/`composables/` layer, never import them directly in a component.
 - Ensure the `mocks/` folder is excluded from the production build, or at minimum clearly commented as dummy data.
-- 
+
 ## Output Format
 - Vue 3 Composition API code (`<script setup>`)
 - Include brief comments only for non-trivial logic
