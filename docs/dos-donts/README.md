@@ -17,6 +17,7 @@ Usage documentation for each component in `@siloamhospitals/ui-vue` — suppleme
 | Chip | [chip.md](chip.md) | ✅ |
 | Date Picker (Date Picker, Date Range Picker, Date Time Picker, Date Time Range Picker) | [date-picker.md](date-picker.md) | ✅ |
 | Divider | [divider.md](divider.md) | ✅ |
+| Drawer | [drawer.md](drawer.md) | ✅ |
 | Dropzone | [dropzone.md](dropzone.md) | ✅ |
 | File Upload | [file-upload.md](file-upload.md) | ✅ |
 | Header | [header.md](header.md) | ✅ |
@@ -29,6 +30,7 @@ Usage documentation for each component in `@siloamhospitals/ui-vue` — suppleme
 | Pagination & Rows Per Page | [pagination.md](pagination.md) | ✅ |
 | Password Input | [password-input.md](password-input.md) | ✅ |
 | Phone Input | [phone-input.md](phone-input.md) | ✅ |
+| Popover | [popover.md](popover.md) | ✅ |
 | Progress Bar | [progress-bar.md](progress-bar.md) | ✅ |
 | Radio (RadioGroup) | [radio.md](radio.md) | ✅ |
 | Select | [select.md](select.md) | ✅ |

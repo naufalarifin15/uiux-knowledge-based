@@ -445,7 +445,7 @@ Max 4 questions per call. After user responds → update PRD in place.
 ## Relationship to this knowledge base
 
 - This skill produces PRDs for **new features**. For component-level implementation details (exact tokens, spacing, do's/don'ts), always cross-check `docs/dos-donts/` before writing the Tech Spec or UI Style sections.
-- `docs/PRD.md` is a static reference template — this skill is the interactive way to actually generate a PRD. Keep `docs/PRD.md` as a manual fallback/reference; this skill is the primary workflow.
+- `docs/PRD/` contains the static reference templates (`README.md` for the index, `_template.md` for the module structure) — this skill is the interactive way to actually generate a PRD. Keep the templates in `docs/PRD/` as a manual fallback/reference; this skill is the primary workflow.
 
 ---
 
