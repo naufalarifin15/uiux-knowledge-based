@@ -3,6 +3,8 @@
 ## Function & When to Use
 Select is for choosing 1 or more options from a dropdown list, with built-in search and support for option grouping. Used when there are too many options for a regular Radio/Checkbox, or when a search feature within the option list is needed.
 
+**Difference from Combobox:** Select has a separate search field inside the dropdown panel (the main trigger is just a display button, not directly typeable). Combobox's search field is merged into the trigger itself (you type directly in the field). See `combobox.md` for details.
+
 ## Props Structure
 
 | Prop | Type | Default | Description |
@@ -14,6 +16,7 @@ Select is for choosing 1 or more options from a dropdown list, with built-in sea
 | `multiple` | `boolean` | `false` | Allows selecting more than 1 option |
 | `searchable` | `boolean` | `true` | Shows the search field inside the dropdown |
 | `searchPlaceholder` | `string` | `'Search...'` | Placeholder for the search field |
+| `clearable` | `boolean` | `true` | Shows a clear/remove button once a value is selected — **same shared feature also in Combobox, see `combobox.md`** |
 | `emptyMessage` | `string` | `'No options found'` | Message shown when search results are empty |
 | `disabled` | `boolean` | `false` | Disables the select |
 | `error` | `boolean` | `false` | Shows error styling |
@@ -38,6 +41,7 @@ Select is for choosing 1 or more options from a dropdown list, with built-in sea
 - Turn off `searchable={false}` for short option lists (e.g. < 5 options) where the search field just adds noise with no benefit.
 - Set `disabled` at the `SelectOption` level to disable specific options (e.g. an option already selected in another select, or unavailable given the current condition) — without needing to remove it from `items`.
 - Adjust `emptyMessage` to a relevant search context (e.g. `"No matching province found"`) instead of leaving the generic default, if it aids clarity.
+- Set `clearable={false}` only for fields that must always hold a valid value (can never be empty) — for most cases, keep the default `clearable={true}` so users can easily reset their selection.
 
 ## ❌ Don't
 - Don't assume `value` is a single `string` for the `multiple=false` case — its data type is still `string[]` (an array with 1 element); it will error if treated as a plain string.

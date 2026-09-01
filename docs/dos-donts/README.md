@@ -2,6 +2,16 @@
 
 Usage documentation for each component in `@siloamhospitals/ui-vue` — supplementing the package's types/props with context that isn't reflected there, especially **when to use a given variant** (size, color/function, etc.) and anti-patterns to avoid.
 
+## Shared Reference Files
+These are not components — they're central rules referenced by multiple component docs. Always check these before writing a new Responsive Behavior section, instead of redefining values locally.
+
+| File | Purpose |
+|---|---|
+| [_breakpoints.md](_breakpoints.md) | Single source of truth for breakpoint values (Mobile / Tablet / Desktop) |
+| [_form-layout.md](_form-layout.md) | Grid rules — how many form fields are allowed per row at each breakpoint, by field category |
+
+## Components
+
 | Component | File | Status |
 |---|---|---|
 | Accordion | [accordion.md](accordion.md) | ✅ |
@@ -15,6 +25,7 @@ Usage documentation for each component in `@siloamhospitals/ui-vue` — suppleme
 | Chart | [chart.md](chart.md) | ✅ |
 | Checkbox | [checkbox.md](checkbox.md) | ✅ |
 | Chip | [chip.md](chip.md) | ✅ |
+| Combobox | [combobox.md](combobox.md) | ✅ |
 | Date Picker (Date Picker, Date Range Picker, Date Time Picker, Date Time Range Picker) | [date-picker.md](date-picker.md) | ✅ |
 | Divider | [divider.md](divider.md) | ✅ |
 | Drawer | [drawer.md](drawer.md) | ✅ |
@@ -42,6 +53,7 @@ Usage documentation for each component in `@siloamhospitals/ui-vue` — suppleme
 | Tabs | [tabs.md](tabs.md) | ✅ |
 | Text Editor | [text-editor.md](text-editor.md) | ✅ |
 | Textarea | [textarea.md](textarea.md) | ✅ |
+| Time Picker | [time-picker.md](time-picker.md) | ⬜ |
 | Timeline | [timeline.md](timeline.md) | ✅ |
 | Toast | [toast.md](toast.md) | ✅ |
 | Tooltip | [tooltip.md](tooltip.md) | ✅ |
@@ -52,5 +64,6 @@ Status: ✅ Complete · 🚧 Incomplete (image references don't cover all detail
 ## Adding New Documentation
 1. Copy `_template.md` → rename it to match the component name (lowercase, kebab-case)
 2. Fill in **Function & When to Use** and **Variant Guide** first — this is the most important part since it isn't reflected in the types
-3. Fill in Do / Don't with concrete examples (can be filled in incrementally as new cases are found)
-4. Add a new row to the table above
+3. Fill in **Responsive Behavior** — reference `_breakpoints.md` for breakpoint values, and `_form-layout.md` if the component is a form field (check which field category it belongs to)
+4. Fill in Do / Don't with concrete examples (can be filled in incrementally as new cases are found), including any responsive-specific do's/don'ts in the same list
+5. Add a new row to the table above

@@ -246,12 +246,10 @@ ARCHITECTURE
 Layout Pattern    : Sidebar + Topbar (Dashboard layout)
 Architecture      : Component-based architecture
 Data Fetching     : API-based (REST / fetch / composables)
-Responsive        : Pulse DS breakpoints
-                    sm  → 640px   (mobile landscape)
-                    md  → 768px   (tablet)
-                    lg  → 1024px  (desktop)
-                    xl  → 1280px  (wide desktop)
-                    2xl → 1536px  (ultrawide)
+Responsive        : See docs/dos-donts/_breakpoints.md
+                    Mobile   → 0–500px
+                    Tablet   → 501–1023px
+                    Desktop  → 1024px and up
 Dark Mode         : Per Pulse DS tokens (if supported)
 Pattern           : Clinical EMR dashboard pattern
 
@@ -270,6 +268,7 @@ OVERRIDES / ADDITIONS
 Rules:
 - This section is **always generated** — do not skip, do not ask permission.
 - The stack values above are Siloam defaults — never change them unless the user explicitly overrides.
+- The Responsive breakpoint values must always match `docs/dos-donts/_breakpoints.md`. If that file is ever updated, update this section too — do not let the two drift apart.
 - The OVERRIDES row is populated from Step 4b user selection. If "No changes" → write "None".
 - Place this before the PRD Header in every output.
 
@@ -368,6 +367,7 @@ Rules:
 - Unknown fields → **(TBD)**.
 - If user provided a design reference link → include it here and reference it in Design Artifacts table.
 - All colors/spacing must ultimately resolve to Pulse DS tokens — see `docs/dos-donts/` for exact token values per component.
+- Any responsive/breakpoint behavior mentioned must match `docs/dos-donts/_breakpoints.md` and `docs/dos-donts/_form-layout.md` — do not invent different breakpoint values.
 
 #### Design Artifacts
 
@@ -445,6 +445,7 @@ Max 4 questions per call. After user responds → update PRD in place.
 ## Relationship to this knowledge base
 
 - This skill produces PRDs for **new features**. For component-level implementation details (exact tokens, spacing, do's/don'ts), always cross-check `docs/dos-donts/` before writing the Tech Spec or UI Style sections.
+- Breakpoint and responsive grid values used anywhere in a PRD must come from `docs/dos-donts/_breakpoints.md` and `docs/dos-donts/_form-layout.md` — never hardcode different values (e.g. do not use generic Tailwind breakpoints like `sm/md/lg/xl/2xl`; this project uses Mobile 0–500px, Tablet 501–1023px, Desktop 1024px+).
 - `docs/PRD/` contains the static reference templates (`README.md` for the index, `_template.md` for the module structure) — this skill is the interactive way to actually generate a PRD. Keep the templates in `docs/PRD/` as a manual fallback/reference; this skill is the primary workflow.
 
 ---
@@ -462,3 +463,4 @@ Max 4 questions per call. After user responds → update PRD in place.
 - Do not leave all user stories out of the Coverage Map.
 - Do not leave TBDs unaddressed — always follow up via AskUserQuestion.
 - Do not introduce React/Next.js/Tailwind — this project's stack is Vue 3 + @siloamhospitals/ui-vue only.
+- Do not hardcode breakpoint values that diverge from `docs/dos-donts/_breakpoints.md`.
