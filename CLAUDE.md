@@ -5,6 +5,10 @@
 - Design System: `@siloamhospitals/ui-vue` package — the **single source of truth** for UI components, styling, fonts, spacing, and icons
 - Domain/product: see `docs/PRD/` (this file is universal and reused across multiple projects — product details always reference the PRD, not hardcoded here)
 
+## Before You Start
+- Always check the current git branch and working directory status before creating or editing files (`git status`). Never assume you are on `main` — collaborators may be working from a different branch.
+- If the working directory is not clean (uncommitted changes present) or the branch doesn't match the current task, **stop and ask the user** before proceeding, instead of assuming it's safe to continue.
+
 ## Hard Rules
 1. **All visual needs must use components from `@siloamhospitals/ui-vue`.** Do not build custom components if an equivalent already exists in the package.
 2. **Do not install new packages** (including other UI libraries, CSS frameworks, icon sets) without explicit confirmation from the user.
@@ -18,6 +22,7 @@
 - `docs/PRD/` — product requirements per module (see `docs/PRD/README.md` for index, global roles, sitemap, and cross-module business rules)
 - `docs/dos-donts/` — usage guide for each component: when to use a given variant, anti-patterns, context not reflected in the types
 - `docs/assets/` — visual references (mockups, screenshots, design exports) linked from PRD and dos-donts files — see **Visual Assets Convention** below
+- **New PRDs must be generated using the `siloam-prd-writer` skill** — this enforces the correct structure, breakpoint system, and tech-stack constraints. Do not write a PRD manually without invoking the skill first.
 
 ## Visual Assets Convention
 Visual references (mockups, bug screenshots, Figma exports, or external links) used in documentation are **distinct from `src/assets/`**, which holds runtime application assets. References come in two forms:

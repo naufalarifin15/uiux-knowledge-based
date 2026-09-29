@@ -9,6 +9,9 @@ These are not components — they're central rules referenced by multiple compon
 |---|---|
 | [_breakpoints.md](_breakpoints.md) | Single source of truth for breakpoint values (Mobile / Tablet / Desktop) |
 | [_form-layout.md](_form-layout.md) | Grid rules — how many form fields are allowed per row at each breakpoint, by field category |
+| [_error-state.md](_error-state.md) | Cross-component pattern: which components combine, and in what order, for error scenarios (form validation, fetch failure, network loss, action failure, access denied/not found) |
+| [_empty-state.md](_empty-state.md) | Cross-component pattern: which components combine for empty-content scenarios (empty list, empty widget, empty notifications/chat, zero search results, empty upload area) |
+| [_loading-state.md](_loading-state.md) | Cross-component pattern: when to use Spinner vs Progress Bar, at what size, across loading scenarios (page load, section load, action in progress, pagination, search, file upload) |
 
 ## Components
 
@@ -32,6 +35,7 @@ These are not components — they're central rules referenced by multiple compon
 | Dropzone | [dropzone.md](dropzone.md) | ✅ |
 | File Upload | [file-upload.md](file-upload.md) | ✅ |
 | Header | [header.md](header.md) | ✅ |
+| Illustration | [illustration.md](illustration.md) | ✅ |
 | Image | [image.md](image.md) | ✅ |
 | Input | [input.md](input.md) | ✅ |
 | Link | [link.md](link.md) | ✅ |
@@ -67,3 +71,10 @@ Status: ✅ Complete · 🚧 Incomplete (image references don't cover all detail
 3. Fill in **Responsive Behavior** — reference `_breakpoints.md` for breakpoint values, and `_form-layout.md` if the component is a form field (check which field category it belongs to)
 4. Fill in Do / Don't with concrete examples (can be filled in incrementally as new cases are found), including any responsive-specific do's/don'ts in the same list
 5. Add a new row to the table above
+
+## Adding New Pattern Documentation
+Use this instead of the component workflow above when the new file describes a **cross-component scenario** (e.g. a new kind of state — success, offline mode) rather than a single component.
+1. Name the file with a leading underscore (`_scenario-name.md`) so it's grouped with other Shared Reference Files, not the Components table
+2. Structure it as: **Function & When to Use** → one **Scenario** section per distinct case (trigger, component sequence, ✅ Do, ❌ Don't) → a **Decision Summary** table → **Open Items** for anything still unconfirmed
+3. Reference the individual component docs (e.g. `alert.md`, `illustration.md`) for single-component rules — don't restate them; this file only covers ordering and combination
+4. Add a new row to the Shared Reference Files table above
